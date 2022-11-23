@@ -1,9 +1,12 @@
 import React from 'react';
+import Category from '../Category/Category';
+import Hero from '../Hero/Hero';
 
 const Home = () => {
     return (
         <div>
-            <button className='btn btn-primary'>Home</button>
+            <Hero></Hero>
+            <Category></Category>
         </div>
     );
 };

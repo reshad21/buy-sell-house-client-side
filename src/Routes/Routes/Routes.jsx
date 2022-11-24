@@ -6,6 +6,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import Traffic from "../../Pages/Traffic/Traffic";
 
 const router = createBrowserRouter([
     {
@@ -36,8 +37,8 @@ const router = createBrowserRouter([
         element: <Dashbord></Dashbord>,
         children: [
             {
-                // path: '/dashbord',
-                // element: <MyAppointment></MyAppointment>
+                path: '/dashbord',
+                element: <Traffic></Traffic>
             },
             {
                 // path: '/dashbord/allusers',

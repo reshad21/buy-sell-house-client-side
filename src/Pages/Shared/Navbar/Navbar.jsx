@@ -1,14 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user?.displayName);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                navigate(from, { replace: true });
+            })
+            .catch((error) => { });
+    }
+
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/appointment">Appointment</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/reviews">Dashboard</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        {
+            user?.displayName ?
+                <li><Link onClick={handleLogOut} >Logout</Link></li>
+                :
+                <li><Link to="/login">Login</Link></li>
+        }
     </>
+
+
+
     return (
         <div>
             <div className="navbar bg-base-100 flex justify-between">

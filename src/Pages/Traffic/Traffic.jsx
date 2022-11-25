@@ -12,10 +12,10 @@ const Traffic = () => {
         }
     });
 
-    const handleDelete = (userid) => {
+    const handleDelete = (user) => {
         window.confirm(`are you sure?`);
-        console.log(userid);
-        fetch(`http://localhost:5000/user/${userid}`, {
+        console.log(user);
+        fetch(`http://localhost:5000/user/${user._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -28,18 +28,15 @@ const Traffic = () => {
 
     if (isLoading) {
         return (
-            <div className='flex justify-center items-center'>
-                <button type="button" className="bg-indigo-500 ..." disabled>
-                    <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
-                    Processing...
-                </button>
+            <div className='flex justify-center items-center min-h-screen'>
+                <progress className="progress w-56"></progress>
             </div>
         )
     }
 
     return (
         <div>
-            <h2 className='text-3xl mb-5'>All Traffic of This site: {users.length}</h2>
+            <h2 className='text-3xl mb-5'>Buyer And Seller Information: {users.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -60,7 +57,7 @@ const Traffic = () => {
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
                                         <td>{user?.role}</td>
-                                        <td><button onClick={() => handleDelete(user?._id)} className='btn btn-sm'>Delete</button></td>
+                                        <td><button onClick={() => handleDelete(user)} className='btn btn-sm'>Delete</button></td>
                                     </tr>
                                 )
                             })

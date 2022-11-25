@@ -3,7 +3,7 @@ import React from 'react';
 
 const Traffic = () => {
 
-    const { data: users = [], isLoading } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/user')
@@ -12,11 +12,25 @@ const Traffic = () => {
         }
     });
 
+    const handleDelete = (userid) => {
+        window.confirm(`are you sure?`);
+        console.log(userid);
+        fetch(`http://localhost:5000/user/${userid}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch()
+                }
+            })
+    }
+
     if (isLoading) {
         return (
             <div className='flex justify-center items-center'>
-                <button type="button" class="bg-indigo-500 ..." disabled>
-                    <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+                <button type="button" className="bg-indigo-500 ..." disabled>
+                    <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
                     Processing...
                 </button>
             </div>
@@ -41,12 +55,12 @@ const Traffic = () => {
                         {
                             users?.map((user, i) => {
                                 return (
-                                    <tr>
+                                    <tr key={user?._id}>
                                         <th>{i + 1}</th>
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
                                         <td>{user?.role}</td>
-                                        <td><button className='btn btn-sm'>Delete</button></td>
+                                        <td><button onClick={() => handleDelete(user?._id)} className='btn btn-sm'>Delete</button></td>
                                     </tr>
                                 )
                             })

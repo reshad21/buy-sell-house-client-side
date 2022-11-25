@@ -6,6 +6,7 @@ import Buyer from "../../Pages/Buyer/Buyer";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 import Seller from "../../Pages/Seller/Seller";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Traffic from "../../Pages/Traffic/Traffic";
@@ -43,14 +44,17 @@ const router = createBrowserRouter([
                 element: <Traffic></Traffic>
             },
             {
+                path: '/dashbord/buyer',
+                element: <Buyer></Buyer>
+            },
+            {
                 path: '/dashbord/seller',
                 element: <Seller></Seller>
             },
             {
-                path: '/dashbord/buyer',
-                element: <Buyer></Buyer>
+                path: '/dashbord/seller/myproducts',
+                element: <MyProducts></MyProducts>
             },
-
         ]
 
     }

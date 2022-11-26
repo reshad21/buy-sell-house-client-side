@@ -42,7 +42,7 @@ const MyProducts = () => {
 
 
     const handlePersonalProduct = (myProduct) => {
-        // console.log('personal product dleted successfully', myProduct._id);
+        // console.log('personal product deleted successfully', myProduct._id);
         const id = myProduct._id;
         fetch(`http://localhost:5000/products/${id}`, {
             method: 'DELETE',
@@ -58,8 +58,8 @@ const MyProducts = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-semibold mb-1'>My Products List:{myProducts?.length}</h1>
-            <span>Email Address: {user?.email}</span>
+            <h1 className='text-3xl font-semibold mb-1'>My Products List: {myProducts?.length}</h1>
+            <p>Email Address: <span className='font-semibold text-rose-600'>{user?.email}</span></p>
 
             <div className="overflow-x-auto my-5">
                 <table className="table w-full">

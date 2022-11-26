@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const Seller = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user?.email);
     const handleProductForm = (e) => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
+        const productname = form.name.value;
         const price = form.price.value;
+        const email = form.email.value;
         const condition = form.condition.value;
         const phoneNumber = form.phoneNumber.value;
         const location = form.location.value;
@@ -16,12 +20,13 @@ const Seller = () => {
 
         const productInfo = {
             year,
-            name,
+            email,
             price,
             category,
             location,
             condition,
             phoneNumber,
+            productname,
             description,
         }
         console.log(productInfo);
@@ -86,6 +91,13 @@ const Seller = () => {
 
                             <div className="form-control">
                                 <label className="label font-bold">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input name='email' type='text' defaultValue={user?.email} className="input input-bordered" required readOnly />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label font-bold">
                                     <span className="label-text">Location</span>
                                 </label>
                                 <input name='location' type="text" placeholder="location" className="input input-bordered" required />
@@ -117,7 +129,7 @@ const Seller = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
 

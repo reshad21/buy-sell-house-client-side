@@ -23,9 +23,25 @@ const MyProducts = () => {
         )
     }
 
+    const handleAvailable = (myProduct) => {
+        const id = myProduct._id;
+        console.log(id);
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    refetch();
+                }
+            })
+
+    }
+
 
     const handlePersonalProduct = (myProduct) => {
-        console.log('personal product dleted successfully', myProduct._id);
+        // console.log('personal product dleted successfully', myProduct._id);
         const id = myProduct._id;
         fetch(`http://localhost:5000/products/${id}`, {
             method: 'DELETE',
@@ -36,6 +52,7 @@ const MyProducts = () => {
                 console.log(data);
                 toast.success('Product Delete From Dashbord!')
                 refetch();
+                toast.success('advertise successfully')
             })
     }
 
@@ -65,7 +82,17 @@ const MyProducts = () => {
                                         <th>{i + 1}</th>
                                         <td>{myProduct?.productname}</td>
                                         <td>{myProduct?.price}</td>
-                                        <td><button className='btn btn-secondary btn-sm'>Available</button></td>
+                                        <td>
+                                            {
+                                                (myProduct?.role === 'available')
+                                                    ?
+                                                    <button className='btn btn-primary btn-sm'>ADVERTIZE RUN</button>
+                                                    :
+                                                    <button onClick={() => handleAvailable(myProduct)} className='btn btn-secondary btn-sm'>Available</button>
+
+                                            }
+
+                                        </td>
                                         <td><button onClick={() => handlePersonalProduct(myProduct)} className='btn btn-error btn-sm'>Delete</button></td>
                                     </tr>
                                 )

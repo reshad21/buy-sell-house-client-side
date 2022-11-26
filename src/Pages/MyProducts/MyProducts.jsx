@@ -34,6 +34,7 @@ const MyProducts = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     refetch();
+                    toast.success('advertise successfully')
                 }
             })
 
@@ -52,7 +53,6 @@ const MyProducts = () => {
                 console.log(data);
                 toast.success('Product Delete From Dashbord!')
                 refetch();
-                toast.success('advertise successfully')
             })
     }
 

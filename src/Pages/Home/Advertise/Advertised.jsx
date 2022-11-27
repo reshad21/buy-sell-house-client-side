@@ -47,7 +47,7 @@ const Advertised = () => {
                                     </h2>
                                     <p>{focusProduct?.description}</p>
                                     <div className="card-actions justify-end">
-                                        <label htmlFor="booking-modal" className="btn btn-sm btn-primary text-white">open modal</label>
+                                        <label htmlFor="booking-modal" className="btn btn-sm btn-primary text-white">Book Now</label>
                                         <Bookingmodal focusProduct={focusProduct}></Bookingmodal>
                                     </div>
                                 </div>

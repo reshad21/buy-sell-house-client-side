@@ -6,6 +6,15 @@ const Bookingmodal = ({ focusProduct }) => {
     const { user } = useContext(AuthContext);
     // console.log(user);
 
+    // const { data: allbooking } = useQuery({
+    //     queryKey: ['booking data'],
+    //     queryFn: async () => {
+    //         const res = await fetch('http://localhost:5000/bookings');
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // })
+
     const handleBookingModal = (e) => {
         e.preventDefault();
         const form = e.target;

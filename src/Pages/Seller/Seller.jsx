@@ -17,11 +17,13 @@ const Seller = () => {
         const category = form.category.value;
         const description = form.description.value;
         const year = form.year.value;
+        const picture = form.picture.value;
 
         const productInfo = {
             year,
             email,
             price,
+            picture,
             category,
             location,
             condition,
@@ -69,6 +71,13 @@ const Seller = () => {
                                     <span className="label-text">Price</span>
                                 </label>
                                 <input name='price' type="text" placeholder="price" className="input input-bordered" required />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label font-bold">
+                                    <span className="label-text">Product Image Url</span>
+                                </label>
+                                <input name='picture' type="text" placeholder="url" className="input input-bordered" required />
                             </div>
 
                             <div className="form-control">

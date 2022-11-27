@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../contexts/AuthProvider';
+import Loading from '../Loading/Loading';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
@@ -19,7 +20,9 @@ const MyProducts = () => {
 
     if (isLoading) {
         return (
-            <p>loading...</p>
+            <div className='bg-white flex items-end justify-center h-[200px]'>
+                <h1 className='text-2xl font-semibold text-slate-600'>L <Loading></Loading>ading...</h1>
+            </div>
         )
     }
 
@@ -80,7 +83,20 @@ const MyProducts = () => {
                                 return (
                                     <tr key={myProduct?._id}>
                                         <th>{i + 1}</th>
-                                        <td>{myProduct?.productname}</td>
+                                        {/* <td>{myProduct?.productname}</td> */}
+                                        <td>
+                                            <div className="flex items-center space-x-3">
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle w-12 h-12">
+                                                        <img src={myProduct?.picture} alt="Avatar Tailwind CSS Component" />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-bold">{myProduct?.productname}</div>
+                                                    <div className="text-sm opacity-50">{myProduct?.location}</div>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>{myProduct?.price}</td>
                                         <td>
                                             {

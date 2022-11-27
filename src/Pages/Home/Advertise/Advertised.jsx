@@ -1,26 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import Bookingmodal from '../../Bookingmodal/Bookingmodal';
 
 const Advertised = () => {
 
-    // const { data: products } = useQuery({
-    //     queryKey: ['advertize'],
-    //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:5000/products/home?role=available`);
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
+    const { data: focusProducts = [], isLoading } = useQuery({
+        queryKey: ['focusProducts'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/products/home?role=available');
+            const data = await res.json();
+            return data;
+        }
+    })
 
-    const [focusProducts, setfocusProducts] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/products/home?role=available`)
-            .then(res => res.json())
-            .then(data => {
-                setfocusProducts(data);
-                console.log(data);
-            })
+    if (isLoading) {
+        return (
+            <div className='flex justify-center items-center min-h-screen'>
+                <progress className="progress w-56"></progress>
+            </div>
+        )
+    }
 
-    }, [])
+    // const [focusProducts, setfocusProducts] = useState([]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/products/home?role=available`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setfocusProducts(data);
+    //             console.log(data);
+    //         })
+    // }, [])
 
     return (
         <div className="">
@@ -30,12 +39,16 @@ const Advertised = () => {
                     focusProducts?.map(focusProduct => {
                         return (
                             <div key={focusProduct?._id} className="card w-full card-compact bg-base-100 shadow-xl">
-                                <figure><img className='w-full' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                                <figure><img className='w-full' src={focusProduct?.picture} alt="Shoes" /></figure>
                                 <div className="card-body">
-                                    <h2 className="card-title">Shoes!</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <h2 className="card-title flex justify-between">
+                                        <span>{focusProduct?.productname}</span>
+                                        <span className='text-sm'>Price: {focusProduct?.price}tk</span>
+                                    </h2>
+                                    <p>{focusProduct?.description}</p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Buy Now</button>
+                                        <label htmlFor="booking-modal" className="btn btn-sm btn-primary text-white">open modal</label>
+                                        <Bookingmodal focusProduct={focusProduct}></Bookingmodal>
                                     </div>
                                 </div>
                             </div>
@@ -45,6 +58,7 @@ const Advertised = () => {
                 }
 
             </div>
+
         </div>
     );
 };

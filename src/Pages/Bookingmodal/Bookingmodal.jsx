@@ -22,9 +22,10 @@ const Bookingmodal = ({ focusProduct }) => {
         const email = form.useremail.value;
         const productname = form.productname.value;
         const price = form.price.value;
+        const photo = form.photo.value;
         const phonenumber = form.phonenumber.value;
         const meetinglocation = form.meetinglocation.value;
-        const bookingsInfo = { username, email, productname, price, phonenumber, meetinglocation }
+        const bookingsInfo = { username, email, productname, price, photo, phonenumber, meetinglocation }
         console.log(bookingsInfo);
 
         fetch('http://localhost:5000/bookings', {
@@ -83,6 +84,13 @@ const Bookingmodal = ({ focusProduct }) => {
                                             <span className="label-text">Price</span>
                                         </label>
                                         <input name='price' type="text" defaultValue={focusProduct?.price} className="input input-bordered" readOnly />
+                                    </div>
+
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Photo Url</span>
+                                        </label>
+                                        <input name='photo' type="text" defaultValue={focusProduct?.picture} className="input input-bordered" readOnly />
                                     </div>
 
                                     <div className="form-control">

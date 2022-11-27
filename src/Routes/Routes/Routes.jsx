@@ -7,6 +7,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
+import Products from "../../Pages/Products/Products";
 import Seller from "../../Pages/Seller/Seller";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Traffic from "../../Pages/Traffic/Traffic";
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
+            {
+                path: '/category/:id',
+                element: <Products></Products>,
+
+            }
         ]
     },
     {

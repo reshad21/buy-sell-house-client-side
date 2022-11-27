@@ -1,23 +1,28 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Category = () => {
-    const categories = [
-        {
-            _id: 1,
-            name: 'LENOVO',
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjv10lWM7gBfiEsdj4ooYGH_34Tz4qqjV9Dg&usqp=CAU'
-        },
-        {
-            _id: 2,
-            name: 'DELL',
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_c-gda5PREVRaly7HGFcGgGkSBPmGGDZNew&usqp=CAU'
-        },
-        {
-            _id: 3,
-            name: 'ASUS',
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt87G_8rat0eVQjxJ89RxAt7X20Btz7C-wsQ&usqp=CAU'
+    const { data: categories = [], isLoading } = useQuery({
+        queryKey: ['categories'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/category');
+            const data = await res.json();
+            return data;
         }
-    ]
+    })
+
+    // const handleCategory = (id) => {
+    //     console.log(id);
+    //     fetch(`http://localhost:5000/category/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => { console.log(data); })
+    // }
+
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
+
     return (
         <div className='px-5 my-10'>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -25,14 +30,14 @@ const Category = () => {
                     categories.map(category => {
                         return (
                             <div key={category?._id} className="card shadow-xl">
-                                <figure className="px-7 pt-7">
-                                    <img src={category?.picture} alt="Shoes" className="rounded-xl" />
+                                <figure className="px-3 pt-7">
+                                    <img src={category?.picture} alt="Shoes" className="w-full" />
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">{category?.name}</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <p>{category?.speech}</p>
                                     <div className="card-actions">
-                                        <button className="btn btn-primary">SEE ALL</button>
+                                        <Link to={`/category/${category?.category}`} className="btn btn-primary">SEE ALL</Link>
                                     </div>
                                 </div>
                             </div>

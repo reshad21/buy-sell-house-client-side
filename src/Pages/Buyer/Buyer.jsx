@@ -8,7 +8,7 @@ const Buyer = () => {
     const { data: myBookings = [], isLoading, refetch } = useQuery({
         queryKey: ['booking', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings?email=${user?.email}`);
+            const res = await fetch(`https://buy-sell-house-server.vercel.app/bookings?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -16,7 +16,7 @@ const Buyer = () => {
 
     const handlePayment = (myBooking) => {
         console.log('click');
-        fetch(`http://localhost:5000/bookings/${myBooking._id}`, {
+        fetch(`https://buy-sell-house-server.vercel.app/bookings/${myBooking._id}`, {
             method: 'PUT',
         })
             .then(res => res.json())

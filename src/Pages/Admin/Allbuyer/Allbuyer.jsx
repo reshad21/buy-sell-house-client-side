@@ -5,7 +5,7 @@ const Allbuyer = () => {
     const { data: allbuyer = [], isLoading, refetch } = useQuery({
         queryKey: ['allbuyer'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/admin/allbuyer?role=Buying');
+            const res = await fetch('https://buy-sell-house-server.vercel.app/admin/allbuyer?role=Buying');
             const data = await res.json();
             return data;
         }
@@ -14,7 +14,7 @@ const Allbuyer = () => {
     const handleDelete = (user) => {
         window.confirm(`are you sure?`);
         console.log(user);
-        fetch(`http://localhost:5000/user/${user._id}`, {
+        fetch(`https://buy-sell-house-server.vercel.app/user/${user._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

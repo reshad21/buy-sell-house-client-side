@@ -7,7 +7,7 @@ const Advertised = () => {
     const { data: focusProducts = [], isLoading } = useQuery({
         queryKey: ['focusProducts'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products/home?role=available');
+            const res = await fetch('https://buy-sell-house-server.vercel.app/products/home?role=available');
             const data = await res.json();
             return data;
         }
@@ -23,7 +23,7 @@ const Advertised = () => {
 
     // const [focusProducts, setfocusProducts] = useState([]);
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/products/home?role=available`)
+    //     fetch(`https://buy-sell-house-server.vercel.app/products/home?role=available`)
     //         .then(res => res.json())
     //         .then(data => {
     //             setfocusProducts(data);

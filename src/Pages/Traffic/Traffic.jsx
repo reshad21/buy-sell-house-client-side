@@ -5,7 +5,7 @@ const Traffic = () => {
     // const { data: users = [], isLoading, refetch } = useQuery({
     //     queryKey: ['user'],
     //     queryFn: async () => {
-    //         const res = await fetch('http://localhost:5000/user')
+    //         const res = await fetch('https://buy-sell-house-server.vercel.app/user')
     //         const data = await res.json();
     //         return data;
     //     }
@@ -14,7 +14,7 @@ const Traffic = () => {
     // const handleDelete = (user) => {
     //     window.confirm(`are you sure?`);
     //     console.log(user);
-    //     fetch(`http://localhost:5000/user/${user._id}`, {
+    //     fetch(`https://buy-sell-house-server.vercel.app/user/${user._id}`, {
     //         method: 'DELETE'
     //     })
     //         .then(res => res.json())

@@ -42,7 +42,7 @@ const SignUp = () => {
                 })
                     .then(() => {
 
-                        fetch('http://localhost:5000/user', {
+                        fetch('https://buy-sell-house-server.vercel.app/user', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

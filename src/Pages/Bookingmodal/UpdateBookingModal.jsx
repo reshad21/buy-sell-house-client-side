@@ -18,7 +18,7 @@ const UpdateBookingModal = ({ allProduct }) => {
         const bookingsInfo = { username, email, productname, price, photo, phonenumber, meetinglocation }
         console.log(bookingsInfo);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://buy-sell-house-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -8,7 +8,7 @@ const Products = () => {
     const { data: allProducts = [] } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/category/${id}`)
+            const res = await fetch(`https://buy-sell-house-server.vercel.app/category/${id}`)
             const data = await res.json()
             return data;
         }
@@ -17,7 +17,7 @@ const Products = () => {
     const { data: allserler = [] } = useQuery({
         queryKey: ['allseller'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/admin/allseller?role=Selling&type=verified');
+            const res = await fetch('https://buy-sell-house-server.vercel.app/admin/allseller?role=Selling&type=verified');
             const data = await res.json();
             return data;
         }

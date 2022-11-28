@@ -11,7 +11,7 @@ const MyProducts = () => {
     const { data: myProducts, isLoading, refetch } = useQuery({
         queryKey: ['myProducts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products?email=${user?.email}`);
+            const res = await fetch(`https://buy-sell-house-server.vercel.app/products?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -29,7 +29,7 @@ const MyProducts = () => {
     const handleAvailable = (myProduct) => {
         const id = myProduct._id;
         console.log(id);
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://buy-sell-house-server.vercel.app/products/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -47,7 +47,7 @@ const MyProducts = () => {
     const handlePersonalProduct = (myProduct) => {
         // console.log('personal product deleted successfully', myProduct._id);
         const id = myProduct._id;
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://buy-sell-house-server.vercel.app/products/${id}`, {
             method: 'DELETE',
 
         })

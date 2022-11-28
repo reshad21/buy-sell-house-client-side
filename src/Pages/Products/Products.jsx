@@ -23,6 +23,8 @@ const Products = () => {
         }
     })
 
+    console.log(allserler);
+
     return (
         <div>
             {/* <h2>Products:{allProducts?.length}</h2> */}

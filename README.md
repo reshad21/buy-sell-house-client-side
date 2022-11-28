@@ -1,3 +1,17 @@
+*website name: Wild Photography
+*live website link: https://winter-shopping-center.web.app/
+*Website different features and functionality : I use route context api and a good structure folder for *this project. Any body can easy understand what is the purpose of the website.
+I use Vercel for Backend data.
+*Technologies:
+ *use react rouder dom
+ *use firebase authentication
+ *Mongodb atlas
+ *use tailwind
+ *daisy ui (tailwind component library)
+ *react-flowbite (tailwind component library)
+ *using dark mode toggle
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

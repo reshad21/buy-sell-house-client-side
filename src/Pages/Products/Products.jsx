@@ -40,7 +40,6 @@ const Products = () => {
                                 <span>Seller Type:{allserler?.type}</span>
 
                                 <div className="card-actions justify-end">
-                                    {/* <button className="btn btn-primary">Book Now</button> */}
                                     <div className="card-actions justify-end">
                                         <label htmlFor="updated-booking-modal" className="btn btn-sm btn-primary text-white">Book Now</label>
                                         <UpdateBookingModal allProduct={allProduct}></UpdateBookingModal>

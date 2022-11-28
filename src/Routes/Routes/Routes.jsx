@@ -14,6 +14,7 @@ import Products from "../../Pages/Products/Products";
 import Seller from "../../Pages/Seller/Seller";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Traffic from "../../Pages/Traffic/Traffic";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -39,14 +40,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <Products></Products>,
-
+                element: <PrivateRoute><Products></Products></PrivateRoute>,
             }
         ]
     },
     {
         path: '/dashbord',
-        element: <Dashbord></Dashbord>,
+        element: <PrivateRoute><Dashbord></Dashbord></PrivateRoute>,
         children: [
             {
                 path: '/dashbord',

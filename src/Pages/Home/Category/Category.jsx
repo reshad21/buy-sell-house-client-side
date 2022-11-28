@@ -12,15 +12,13 @@ const Category = () => {
         }
     })
 
-    // const handleCategory = (id) => {
-    //     console.log(id);
-    //     fetch(`http://localhost:5000/category/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => { console.log(data); })
-    // }
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return (
+            <div className='flex justify-center items-center min-h-screen'>
+                <progress className="progress w-56"></progress>
+            </div>
+        )
     }
 
     return (

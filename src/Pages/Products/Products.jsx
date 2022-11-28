@@ -36,8 +36,7 @@ const Products = () => {
                                 <h3 className='text-xl'>Price: {allProduct?.price}</h3>
                                 <p>{allProduct?.description}</p>
                                 <p>Email: {allProduct?.email}</p>
-
-                                <span>Seller Type:{allserler?.type}</span>
+                                <span>Seller Type: <span className='text-primary font-semibold'>Verified</span></span>
 
                                 <div className="card-actions justify-end">
                                     <div className="card-actions justify-end">

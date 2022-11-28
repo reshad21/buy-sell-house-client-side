@@ -71,15 +71,39 @@ const SignUp = () => {
 
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleSignin = () => {
+        const role = "buyer"
         googleSignIn(googleProvider)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
+                saveUser(user?.displayName, user?.email, role);
+                // navigate(from, { replace: true });
             }).catch((error) => {
                 console.error(error);
             })
     }
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch(`https://buy-sell-house-server.vercel.app/${email}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate(from, { replace: true });
+
+            })
+    }
+
+
+
+
+
 
     return (
         <div className='h-[800px] flex justify-center items-center'>

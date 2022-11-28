@@ -37,20 +37,20 @@ const Dashbord = () => {
 
                         {
                             userRole?.role === 'Selling' && <>
-                                <li><Link to='/dashbord/seller'>ADD PRODUCT</Link></li>
-                                <li><Link to='/dashbord/seller/myproducts'>MY PRODUCTS</Link></li>
+                                <li><Link to='/dashbord/seller'><button className='btn btn-primary w-full'>ADD PRODUCT</button></Link></li>
+                                <li><Link to='/dashbord/seller/myproducts'><button className='btn btn-primary w-full'>MY PRODUCTS</button></Link></li>
                             </>
                         }
                         {
                             userRole?.role === 'Buying' && <>
-                                <li><Link to='/dashbord/buyer'>BUYER</Link></li>
+                                <li><Link to='/dashbord/buyer'><button className='btn btn-primary w-full'>BUYER</button></Link></li>
                             </>
                         }
                         {
                             userRole?.role === 'Admin' && <>
-                                <li><Link to='/dashbord/admin'>ADMIN</Link></li>
-                                <li><Link to='/dashbord/admin/allseller'>ALL SELLER</Link></li>
-                                <li><Link to='/dashbord/admin/allbuyer'>ALL BUYER</Link></li>
+                                <li><Link to='/dashbord/admin'><button className='btn btn-primary w-full'>ADMIN</button></Link></li>
+                                <li><Link to='/dashbord/admin/allseller'><button className='btn btn-primary w-full'>ALL SELLER</button></Link></li>
+                                <li><Link to='/dashbord/admin/allbuyer'><button className='btn btn-primary w-full'>ALL BUYER</button></Link></li>
                             </>
                         }
 

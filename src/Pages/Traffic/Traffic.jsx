@@ -1,43 +1,42 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const Traffic = () => {
 
-    const { data: users = [], isLoading, refetch } = useQuery({
-        queryKey: ['user'],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:5000/user')
-            const data = await res.json();
-            return data;
-        }
-    });
+    // const { data: users = [], isLoading, refetch } = useQuery({
+    //     queryKey: ['user'],
+    //     queryFn: async () => {
+    //         const res = await fetch('http://localhost:5000/user')
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // });
 
-    const handleDelete = (user) => {
-        window.confirm(`are you sure?`);
-        console.log(user);
-        fetch(`http://localhost:5000/user/${user._id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    refetch()
-                }
-            })
-    }
+    // const handleDelete = (user) => {
+    //     window.confirm(`are you sure?`);
+    //     console.log(user);
+    //     fetch(`http://localhost:5000/user/${user._id}`, {
+    //         method: 'DELETE'
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.deletedCount > 0) {
+    //                 refetch()
+    //             }
+    //         })
+    // }
 
-    if (isLoading) {
-        return (
-            <div className='flex justify-center items-center min-h-screen'>
-                <progress className="progress w-56"></progress>
-            </div>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div className='flex justify-center items-center min-h-screen'>
+    //             <progress className="progress w-56"></progress>
+    //         </div>
+    //     )
+    // }
 
     return (
         <div>
-            <h2 className='text-3xl mb-5'>Well Come to the buy Sell Dashbord: {users.length}</h2>
-            <div className="overflow-x-auto">
+            <h2 className='text-4xl mb-5 text-center text-primary font-semibold'>Well Come to the buy Sell Dashbord</h2>
+            {/* <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
@@ -67,7 +66,7 @@ const Traffic = () => {
 
                     </tbody>
                 </table>
-            </div>
+            </div> */}
         </div>
     );
 };

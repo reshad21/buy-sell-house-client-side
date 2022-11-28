@@ -36,7 +36,7 @@ const Traffic = () => {
 
     return (
         <div>
-            <h2 className='text-3xl mb-5'>Buyer And Seller Information: {users.length}</h2>
+            <h2 className='text-3xl mb-5'>Well Come to the buy Sell Dashbord: {users.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>

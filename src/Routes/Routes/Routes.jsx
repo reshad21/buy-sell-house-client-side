@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashbord from "../../Layout/Dashbord";
 import Main from "../../Layout/Main";
+import Admin from "../../Pages/Admin/Admin";
+import Allbuyer from "../../Pages/Admin/Allbuyer/Allbuyer";
+import Allseller from "../../Pages/Admin/Allseller/Allseller";
 import Blog from "../../Pages/Blog/Blog";
 import Buyer from "../../Pages/Buyer/Buyer";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
@@ -50,7 +53,23 @@ const router = createBrowserRouter([
                 element: <Traffic></Traffic>
             },
             {
+                path: '/dashbord/admin',
+                element: <Admin></Admin>
+            },
+            {
+                path: '/dashbord/admin/allseller',
+                element: <Allseller></Allseller>
+            },
+            {
+                path: '/dashbord/admin/allbuyer',
+                element: <Allbuyer></Allbuyer>
+            },
+            {
                 path: '/dashbord/buyer',
+                element: <Buyer></Buyer>
+            },
+            {
+                path: '/dashbord/buyer/bookings',
                 element: <Buyer></Buyer>
             },
             {

@@ -33,23 +33,6 @@ const Dashbord = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashbord-drawer" className="drawer-overlay"></label>
-                    {/* <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        {
-                            userRole?.role === 'Selling' && <p>hello i am seller</p>
-                        }
-                        {
-                            userRole?.role === 'Buying' && <p>hello i am BUYER</p>
-                        }
-                        {
-                            userRole?.role === 'Admin' && <p>hello i am ADMIN</p>
-                        }
-
-                        <li><Link to='/dashbord'>ADMIN</Link></li>
-                        <li><Link to='/dashbord/buyer'>BUYER</Link></li>
-                        <li><Link to='/dashbord/seller'>SELLER</Link></li>
-                        <li><Link to='/dashbord/seller/myproducts'>MY PRODUCTS</Link></li>
-                    </ul> */}
-
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
                         {
@@ -70,6 +53,7 @@ const Dashbord = () => {
                                 <li><Link to='/dashbord/admin/allbuyer'>ALL BUYER</Link></li>
                             </>
                         }
+
                     </ul>
 
                 </div>

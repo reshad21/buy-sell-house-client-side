@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/appointment">Appointment</Link></li>
+        <li><Link to="/gallery">Gallery</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/dashbord">Dashboard</Link></li>
         {
@@ -33,7 +33,7 @@ const Navbar = () => {
 
 
     return (
-        <div>
+        <div className='my-5'>
             <div className="navbar bg-base-100 flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">

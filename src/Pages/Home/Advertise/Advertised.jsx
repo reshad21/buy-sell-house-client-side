@@ -33,7 +33,7 @@ const Advertised = () => {
 
     return (
         <div className="">
-            <h1 className='text-4xl my-6 font-semibold text-center text-orange-600'>Our Latest Trending Product:{focusProducts.length}</h1>
+
             <div className='grid gap-9 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-2'>
                 {
                     focusProducts?.map(focusProduct => {

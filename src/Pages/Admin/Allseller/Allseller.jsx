@@ -75,7 +75,7 @@ const Allseller = () => {
                                                     ?
                                                     <p className='font-bold text-sky-700'>Verified</p>
                                                     :
-                                                    <button onClick={() => handleVerified(user)} className='btn btn-sm btn-info'>Verify</button>
+                                                    <button onClick={() => handleVerified(user)} className='btn btn-sm btn-info'>Unverified </button>
                                             }
 
                                         </td>

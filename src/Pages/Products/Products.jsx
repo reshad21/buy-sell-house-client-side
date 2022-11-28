@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import UpdateBookingModal from '../Bookingmodal/UpdateBookingModal';
 
 const Products = () => {
     const { id } = useParams();
@@ -9,6 +10,15 @@ const Products = () => {
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/category/${id}`)
             const data = await res.json()
+            return data;
+        }
+    })
+
+    const { data: allserler = [] } = useQuery({
+        queryKey: ['allseller'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/admin/allseller?role=Selling&type=verified');
+            const data = await res.json();
             return data;
         }
     })
@@ -25,8 +35,16 @@ const Products = () => {
                                 <h2 className="card-title">{allProduct?.productname}</h2>
                                 <h3 className='text-xl'>Price: {allProduct?.price}</h3>
                                 <p>{allProduct?.description}</p>
+                                <p>Email: {allProduct?.email}</p>
+
+                                <span>Seller Type:{allserler?.type}</span>
+
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Book Now</button>
+                                    {/* <button className="btn btn-primary">Book Now</button> */}
+                                    <div className="card-actions justify-end">
+                                        <label htmlFor="updated-booking-modal" className="btn btn-sm btn-primary text-white">Book Now</label>
+                                        <UpdateBookingModal allProduct={allProduct}></UpdateBookingModal>
+                                    </div>
                                 </div>
                             </div>
                         </div>

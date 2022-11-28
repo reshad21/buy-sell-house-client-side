@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../contexts/AuthProvider';
 
-const Bookingmodal = ({ focusProduct }) => {
+const UpdateBookingModal = ({ allProduct }) => {
+    // console.log(allProduct);
     const { user } = useContext(AuthContext);
     const handleBookingModal = (e) => {
         e.preventDefault();
@@ -31,15 +32,12 @@ const Bookingmodal = ({ focusProduct }) => {
                 form.reset();
             })
     }
-
-
-
     return (
         <div>
-            <input name='username' type="checkbox" id="booking-modal" className="modal-toggle" />
+            <input name='username' type="checkbox" id="updated-booking-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="updated-booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <div className="hero w-full ">
                         <div className="hero-content flex-col lg:flex-row-reverse w-full">
@@ -65,21 +63,21 @@ const Bookingmodal = ({ focusProduct }) => {
                                         <label className="label">
                                             <span className="label-text">Product Name</span>
                                         </label>
-                                        <input name='productname' type="text" defaultValue={focusProduct?.productname} className="input input-bordered" readOnly />
+                                        <input name='productname' type="text" defaultValue={allProduct?.productname} className="input input-bordered" readOnly />
                                     </div>
 
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
-                                        <input name='price' type="text" defaultValue={focusProduct?.price} className="input input-bordered" readOnly />
+                                        <input name='price' type="text" defaultValue={allProduct?.price} className="input input-bordered" readOnly />
                                     </div>
 
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Photo Url</span>
                                         </label>
-                                        <input name='photo' type="text" defaultValue={focusProduct?.picture} className="input input-bordered" readOnly />
+                                        <input name='photo' type="text" defaultValue={allProduct?.picture} className="input input-bordered" readOnly />
                                     </div>
 
                                     <div className="form-control">
@@ -112,4 +110,4 @@ const Bookingmodal = ({ focusProduct }) => {
     );
 };
 
-export default Bookingmodal;
+export default UpdateBookingModal;

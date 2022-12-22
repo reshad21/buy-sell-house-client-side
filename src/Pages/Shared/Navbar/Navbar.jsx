@@ -33,7 +33,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='my-5'>
+        <div className='my-5 sticky top-0 z-30 w-full lg:px-[90px] md:px-[30px] backdrop-blur'>
             <div className="navbar bg-base-100 flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">

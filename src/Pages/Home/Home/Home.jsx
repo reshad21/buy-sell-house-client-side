@@ -6,7 +6,7 @@ import Hero from '../Hero/Hero';
 
 const Home = () => {
     return (
-        <div>
+        <div className='mt-12 max-w-[1200px] mx-auto'>
             <Hero></Hero>
             <Category></Category>
             <AboutSection></AboutSection>
